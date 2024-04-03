@@ -89,7 +89,7 @@ def dns_query(type, name, server):
     if type == 'A':
         qtype = 1     # Lookup the Resource Record value
     elif type == 'AAAA':
-        qtype = 2     # Lookup the Resource Record value
+        qtype = 28     # Lookup the Resource Record value
     else:
         raise ValueError('Invalid type')
     
@@ -155,7 +155,7 @@ def dns_query(type, name, server):
             ipv4 = socket.inet_ntop(socket.AF_INET, rdata)
             print(f'{name} has IPv4 address {ipv4}')
             return ipv4
-        elif type == 2: # Lookup Type value
+        elif type == 28: # Lookup Type value
             # AAAA record (IPv6 address)
             ipv6 = socket.inet_ntop(socket.AF_INET6, rdata)
             print(f'{name} has IPv6 address {ipv6}')
